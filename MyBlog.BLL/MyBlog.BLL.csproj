@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="microsoft.entityframeworkcore" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MyBlog.DAL\MyBlog.DAL.csproj" />
     <ProjectReference Include="..\MyBlog.Domain\MyBlog.Domain.csproj" />
   </ItemGroup>
