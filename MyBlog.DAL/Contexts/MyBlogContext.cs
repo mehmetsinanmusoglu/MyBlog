@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyBlog.Common.Security;
 using MyBlog.DAL.Config;
 using MyBlog.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using MyBlog.Domain.Enums;
 
 namespace MyBlog.DAL.Contexts
 {
@@ -12,6 +11,7 @@ namespace MyBlog.DAL.Contexts
         public MyBlogContext(DbContextOptions<MyBlogContext> options) : base(options)
         {
             Database.EnsureCreated();
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,6 +19,16 @@ namespace MyBlog.DAL.Contexts
             modelBuilder.ApplyConfiguration(new CayegoryConfiguration());
             modelBuilder.ApplyConfiguration(new PostConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Id = 1,
+                UserName = "mehmetsinanmusoglu@gmail.com",
+                Email = "mehmetsinanmusoglu@gmail.com",
+                PasswordHash = HashHelper.HashPassword("Ankara1."),
+                UserType = UserType.Admin
+            
+            });
         }
 
         public DbSet<Category> Categories { get; set; }
