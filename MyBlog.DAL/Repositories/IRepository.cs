@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace EasyBlog.DAL.Repositories
+namespace MyBlog.DAL.Repositories
 {
     public interface IRepository<TEntity> where TEntity : BaseEntity
     {

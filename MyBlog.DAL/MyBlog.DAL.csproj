@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
+    <PackageReference Include="microsoft.entityframeworkcore" Version="2.2.6" />
   </ItemGroup>
 
   <ItemGroup>
